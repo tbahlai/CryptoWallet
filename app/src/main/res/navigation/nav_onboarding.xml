@@ -35,5 +35,18 @@
         android:id="@+id/onboardingTransformationFragment"
         android:name="com.tbahlai.cryptowallet.presentation.onboarding.transformation.OnboardingTransformationFragment"
         android:label="OnboardingTransformationFragment"
-        tools:layout="@layout/fragment_onboarding_transformation" />
+        tools:layout="@layout/fragment_onboarding_transformation" >
+        <action
+            android:id="@+id/showProfileFragment"
+            app:destination="@id/nav_profile"
+            app:enterAnim="@anim/slide_right_to_left_new_fragment"
+            app:exitAnim="@anim/slide_right_to_left_old_fragment"
+            app:popEnterAnim="@anim/slide_left_to_right_new_fragment"
+            app:popExitAnim="@anim/slide_left_to_right_old_fragment"
+            app:popUpTo="@id/nav_onboarding"
+            app:popUpToInclusive="false"/>
+    </fragment>
+
+    <include app:graph="@navigation/nav_profile" />
+
 </navigation>

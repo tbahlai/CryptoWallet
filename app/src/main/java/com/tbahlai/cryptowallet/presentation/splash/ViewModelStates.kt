@@ -15,4 +15,5 @@ sealed class SplashAction {
 
 sealed class SplashEvent {
     object OnOpenOnboardingEvent : SplashEvent()
+    object OnOpenProfileEvent : SplashEvent()
 }

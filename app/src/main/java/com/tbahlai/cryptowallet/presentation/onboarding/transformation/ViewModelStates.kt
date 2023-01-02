@@ -10,9 +10,9 @@ data class OnboardingTransformationState(
 ) : BaseState
 
 sealed class OnboardingTransformationAction {
-
+    object OnContinueClickedAction : OnboardingTransformationAction()
 }
 
 sealed class OnboardingTransformationEvent {
-
+    object OnOpenProfileScreenEvent: OnboardingTransformationEvent()
 }
