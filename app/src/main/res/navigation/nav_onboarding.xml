@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_onboarding"
+    app:startDestination="@id/onboardingEasinessFragment">
+
+    <fragment
+        android:id="@+id/onboardingEasinessFragment"
+        android:name="com.tbahlai.cryptowallet.presentation.onboarding.easiness.OnboardingEasinessFragment"
+        android:label="OnboardingEasinessFragment"
+        tools:layout="@layout/fragment_onboarding_easiness">
+        <action
+            android:id="@+id/showOnboardingSecurityFragment"
+            app:destination="@id/onboardingSecurityFragment"
+            app:enterAnim="@anim/slide_right_to_left_new_fragment"
+            app:exitAnim="@anim/slide_right_to_left_old_fragment"
+            app:popEnterAnim="@anim/slide_left_to_right_new_fragment"
+            app:popExitAnim="@anim/slide_left_to_right_old_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingSecurityFragment"
+        android:name="com.tbahlai.cryptowallet.presentation.onboarding.security.OnboardingSecurityFragment"
+        android:label="OnboardingSecurityFragment"
+        tools:layout="@layout/fragment_onboarding_security">
+        <action
+            android:id="@+id/showOnboardingTransformationFragment"
+            app:destination="@id/onboardingTransformationFragment"
+            app:enterAnim="@anim/slide_right_to_left_new_fragment"
+            app:exitAnim="@anim/slide_right_to_left_old_fragment"
+            app:popEnterAnim="@anim/slide_left_to_right_new_fragment"
+            app:popExitAnim="@anim/slide_left_to_right_old_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingTransformationFragment"
+        android:name="com.tbahlai.cryptowallet.presentation.onboarding.transformation.OnboardingTransformationFragment"
+        android:label="OnboardingTransformationFragment"
+        tools:layout="@layout/fragment_onboarding_transformation" />
+</navigation>
