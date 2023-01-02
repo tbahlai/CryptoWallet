@@ -1,4 +1,4 @@
-package com.tbahlai.cryptowallet.ui.theme
+package com.tbahlai.cryptowallet.uikit.theme
 
 import androidx.compose.ui.graphics.Color
 
