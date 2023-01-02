@@ -25,7 +25,7 @@ object Third {
     const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinVersion}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesVersion}"
 
-    const val calendarView = "com.github.tetiana-bahlai:calendar-view:${Versions.calendarViewVersion}"
+    const val viewBindingPropertyDelegate = "com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6"
 }
 
 object Debug {

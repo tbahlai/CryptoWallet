@@ -54,6 +54,7 @@ android {
 
         buildFeatures {
             compose = true
+            viewBinding = true
         }
     }
 }
@@ -99,5 +100,6 @@ dependencies {
     implementation(Google.hiltAndroid)
     kapt(Google.hiltCompiler)
 
+    implementation(Third.viewBindingPropertyDelegate)
     implementation(Google.accompanistSwipeRefresh)
 }
