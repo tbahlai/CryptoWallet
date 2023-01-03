@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_home_items"
+    app:startDestination="@id/categoryItem">
+
+    <fragment
+        android:id="@+id/categoryItem"
+        android:name="com.tbahlai.cryptowallet.presentation.home.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/chartItem"
+        android:name="com.tbahlai.cryptowallet.presentation.home.market.MarketFragment"
+        android:label="MarketFragment" />
+</navigation>

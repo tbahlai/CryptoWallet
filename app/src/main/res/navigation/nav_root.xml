@@ -16,13 +16,13 @@
             app:popUpToInclusive="true" />
 
         <action
-            android:id="@+id/showProfileFragment"
-            app:destination="@id/nav_profile"
+            android:id="@+id/showHomeFragment"
+            app:destination="@id/nav_home"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
     </fragment>
 
     <include app:graph="@navigation/nav_onboarding" />
-    <include app:graph="@navigation/nav_profile" />
+    <include app:graph="@navigation/nav_home" />
 
 </navigation>
