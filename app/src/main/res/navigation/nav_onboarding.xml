@@ -37,8 +37,8 @@
         android:label="OnboardingTransformationFragment"
         tools:layout="@layout/fragment_onboarding_transformation" >
         <action
-            android:id="@+id/showProfileFragment"
-            app:destination="@id/nav_profile"
+            android:id="@+id/showHomeFragment"
+            app:destination="@id/nav_home"
             app:enterAnim="@anim/slide_right_to_left_new_fragment"
             app:exitAnim="@anim/slide_right_to_left_old_fragment"
             app:popEnterAnim="@anim/slide_left_to_right_new_fragment"
@@ -47,6 +47,6 @@
             app:popUpToInclusive="false"/>
     </fragment>
 
-    <include app:graph="@navigation/nav_profile" />
+    <include app:graph="@navigation/nav_home" />
 
 </navigation>

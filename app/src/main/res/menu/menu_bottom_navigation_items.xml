@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/categoryItem"
+        android:icon="@drawable/ic_menu_category"
+        android:checkable="true"
+        android:title="@null" />
+    <item
+        android:id="@+id/chartItem"
+        android:icon="@drawable/ic_menu_chart"
+        android:checkable="true"
+        android:title="@null" />
+</menu>

@@ -13,7 +13,7 @@ import com.tbahlai.cryptowallet.common.utils.launchWithViewLifecycle
 import com.tbahlai.cryptowallet.databinding.FragmentOnboardingTransformationBinding
 import com.tbahlai.cryptowallet.presentation.onboarding.transformation.OnboardingTransformationAction.OnContinueClickedAction
 import com.tbahlai.cryptowallet.presentation.onboarding.transformation.OnboardingTransformationEvent.OnOpenProfileScreenEvent
-import com.tbahlai.cryptowallet.presentation.onboarding.transformation.OnboardingTransformationFragmentDirections.showProfileFragment
+import com.tbahlai.cryptowallet.presentation.onboarding.transformation.OnboardingTransformationFragmentDirections.showHomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,7 +43,7 @@ class OnboardingTransformationFragment : Fragment() {
 
     private fun handleEvent(transformationEvent: OnboardingTransformationEvent) {
         when (transformationEvent) {
-            OnOpenProfileScreenEvent -> findNavController().navigate(showProfileFragment())
+            OnOpenProfileScreenEvent -> findNavController().navigate(showHomeFragment())
         }
     }
 }

@@ -9,8 +9,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.tbahlai.cryptowallet.R
 import com.tbahlai.cryptowallet.common.utils.launchWithViewLifecycle
+import com.tbahlai.cryptowallet.presentation.splash.SplashFragmentDirections.showHomeFragment
 import com.tbahlai.cryptowallet.presentation.splash.SplashFragmentDirections.showOnboardingEasinessFragment
-import com.tbahlai.cryptowallet.presentation.splash.SplashFragmentDirections.showProfileFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,7 +39,7 @@ class SplashFragment : Fragment() {
             SplashEvent.OnOpenOnboardingEvent -> {
                 findNavController().navigate(showOnboardingEasinessFragment())
             }
-            SplashEvent.OnOpenProfileEvent -> findNavController().navigate(showProfileFragment())
+            SplashEvent.OnOpenProfileEvent -> findNavController().navigate(showHomeFragment())
         }
     }
 }

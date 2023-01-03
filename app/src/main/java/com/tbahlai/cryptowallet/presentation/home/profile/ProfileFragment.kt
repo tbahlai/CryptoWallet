@@ -1,4 +1,4 @@
-package com.tbahlai.cryptowallet.presentation.profile
+package com.tbahlai.cryptowallet.presentation.home.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
