@@ -16,6 +16,7 @@ object Third {
     const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
     const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glideVersion}"
     const val glideOkHttp = "com.github.bumptech.glide:okhttp3-integration:${Versions.glideVersion}"
+    const val glideCompose = "com.github.bumptech.glide:compose:${Versions.glideComposeVersion}"
 
     const val retrofit2 = "com.squareup.retrofit2:retrofit:${Versions.retrofit2Version}"
     const val converterScalars = "com.squareup.retrofit2:converter-scalars:${Versions.retrofit2Version}"
@@ -93,6 +94,7 @@ object Versions {
     //Third
     const val materialVersion = "1.5.0"
     const val glideVersion= "4.11.0"
+    const val glideComposeVersion= "1.0.0-alpha.1"
     const val calendarViewVersion = "1.0.2"
 
     //Google
@@ -138,15 +140,22 @@ object BugfenderConfig {
 object Constants {
 
     object DEV {
+        const val BASE_API_URL = "\"https://ms-finance.p.rapidapi.com\""
         const val BUILD_TYPE = "debug"
-        const val FIREBASE_APP_ID = "1:970925560297:android:93fa6445d177b9f97afb78"
+        const val API_KEY = "\"774ffd8ed4mshb40af7c27d99241p101cafjsn6a23ba84bdf3\""
+        const val API_HOST = "\"ms-finance.p.rapidapi.com\""
     }
 
     object RELEASE {
+        const val BASE_API_URL = "\"https://ms-finance.p.rapidapi.com\""
         const val BUILD_TYPE = "release"
-        const val FIREBASE_APP_ID = "1:970925560297:android:cda6bb2e78b394847afb78"
+        const val API_KEY = "\"774ffd8ed4mshb40af7c27d99241p101cafjsn6a23ba84bdf3\""
+        const val API_HOST = "\"ms-finance.p.rapidapi.com\""
     }
 
+    const val BASE_API_URL = "BASE_API_URL"
+    const val API_KEY = "API_KEY"
+    const val API_HOST = "API_HOST"
     const val LOGGING_ENABLED = "LOGGING_ENABLED"
     const val BUGFENDER_TOKEN = "BUGFENDER_TOKEN"
 }

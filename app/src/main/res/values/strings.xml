@@ -10,4 +10,10 @@
     <string name="easiness_description">Supplying the convenient \ntransactions chains</string>
     <string name="security_description">Providing crypto audience with \nhigh-tech security solutions</string>
     <string name="transformation_description">Diversifying crypto investment \nexperience worldwide</string>
+    <string name="welcome_back">Welcome back,</string>
+    <string name="deposit_text">Deposit</string>
+    <string name="withdraw_text">Withdraw</string>
+    <string name="trending">Trending</string>
+    <string name="news_text">News</string>
+    <string name="show_all">Show all</string>
 </resources>
