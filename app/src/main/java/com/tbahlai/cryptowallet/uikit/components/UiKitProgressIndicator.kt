@@ -4,7 +4,6 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
@@ -13,6 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.tbahlai.cryptowallet.uikit.theme.DarkBlue
+import com.tbahlai.cryptowallet.uikit.theme.LightPink
 
 @Composable
 fun UiKitProgressIndicator(isLoading: Boolean) {
@@ -20,7 +21,7 @@ fun UiKitProgressIndicator(isLoading: Boolean) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(MaterialTheme.colors.primaryVariant),
+                .background(DarkBlue),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) { ProgressIndicator() }
@@ -31,7 +32,7 @@ fun UiKitProgressIndicator(isLoading: Boolean) {
 fun ProgressIndicator(
     dotSize: Int = 24,
     defaultDelay: Int = 300,
-    color: Color = MaterialTheme.colors.secondary
+    color: Color = LightPink
 ) {
     val scaleForFirstDot by animateScaleWithDelay(0, defaultDelay)
     val scaleForSecondDot by animateScaleWithDelay(defaultDelay, defaultDelay)
