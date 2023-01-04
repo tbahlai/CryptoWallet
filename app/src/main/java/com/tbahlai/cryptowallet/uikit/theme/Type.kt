@@ -50,7 +50,13 @@ val Typography = Typography(
         fontFamily = sfProFamily,
         fontWeight = FontWeight.Medium,
         fontSize = 12.sp
-    )
+    ),
+    caption = TextStyle(
+        fontFamily = sfProFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    ),
+
     /* Other default text styles to override
     button = TextStyle(
         fontFamily = FontFamily.Default,

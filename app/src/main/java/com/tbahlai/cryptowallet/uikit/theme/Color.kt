@@ -12,6 +12,8 @@ val DarkBlue = Color(0xFF272B40)
 val LightPink = Color(0xFFFF8BAE)
 val DarkPink = Color(0xFFF35585)
 val BasicRed = Color(0xFFE8503A)
+val DarkRed = Color(0xFFEB5757)
 val BasicGreen = Color(0xFF04DC00)
+val DarkGreen = Color(0xFF27AE60)
 
 val TypographyGray = Color(0xFFA3A3A4)

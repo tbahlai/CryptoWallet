@@ -7,5 +7,21 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.tbahlai.cryptowallet.presentation.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/showCurrencyPageFragment"
+            app:destination="@id/currencyPageFragment"
+            app:enterAnim="@anim/slide_right_to_left_new_fragment"
+            app:exitAnim="@anim/slide_right_to_left_old_fragment"
+            app:popEnterAnim="@anim/slide_left_to_right_new_fragment"
+            app:popExitAnim="@anim/slide_left_to_right_old_fragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/currencyPageFragment"
+        android:name="com.tbahlai.cryptowallet.presentation.home.market.currencypage.CurrencyPageFragment"
+        android:label="CurrencyPageFragment" >
+        <argument
+            android:name="marketId"
+            app:argType="long" />
+    </fragment>
 </navigation>

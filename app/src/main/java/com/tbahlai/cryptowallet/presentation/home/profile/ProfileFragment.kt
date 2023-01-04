@@ -24,8 +24,8 @@ import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.tbahlai.cryptowallet.R
 import com.tbahlai.cryptowallet.common.BaseComposeFragment
+import com.tbahlai.cryptowallet.presentation.home.models.UiMarket
 import com.tbahlai.cryptowallet.presentation.home.models.UiNew
-import com.tbahlai.cryptowallet.presentation.home.models.UiTrending
 import com.tbahlai.cryptowallet.presentation.home.models.UiUser
 import com.tbahlai.cryptowallet.uikit.components.UiKitButton
 import com.tbahlai.cryptowallet.uikit.components.UiKitScaffold
@@ -75,7 +75,7 @@ class ProfileFragment : BaseComposeFragment() {
                 ) {}
             }
 
-            SetupTrending(trendingList = state.trendingList)
+            SetupMarkets(marketsList = state.marketsList)
 
             Row(
                 modifier = Modifier
@@ -148,7 +148,7 @@ private fun SetupUserBalance(balance: Double) {
 }
 
 @Composable
-private fun SetupTrending(trendingList: List<UiTrending>) {
+private fun SetupMarkets(marketsList: List<UiMarket>) {
     UiKitTitle(
         modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 42.dp),
         textResId = R.string.trending,
@@ -156,9 +156,9 @@ private fun SetupTrending(trendingList: List<UiTrending>) {
     )
 
     Row(modifier = Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()).padding(16.dp)) {
-        trendingList.forEachIndexed { index, trending ->
+        marketsList.forEachIndexed { index, market ->
             val paddingStart = if (index == 0) 0.dp else 8.dp
-            val paddingEnd = if (index == trendingList.size - 1) 0.dp else 8.dp
+            val paddingEnd = if (index == marketsList.size - 1) 0.dp else 8.dp
             Column(
                 modifier = Modifier
                     .padding(start = paddingStart, end = paddingEnd)
@@ -170,12 +170,12 @@ private fun SetupTrending(trendingList: List<UiTrending>) {
                     .padding(16.dp)
             ) {
                 Row {
-                    Image(painter = painterResource(id = trending.logo), contentDescription = null)
+                    Image(painter = painterResource(id = market.logo), contentDescription = null)
                     Column(modifier = Modifier.padding(start = 10.dp)) {
-                        Text(text = trending.name, style = typography.body1, color = Color.White)
+                        Text(text = market.name, style = typography.body1, color = Color.White)
                         Text(
                             modifier = Modifier.padding(top = 2.dp),
-                            text = trending.description,
+                            text = market.description,
                             style = typography.subtitle1,
                             color = TypographyGray
                         )
@@ -186,25 +186,25 @@ private fun SetupTrending(trendingList: List<UiTrending>) {
                     painter = painterResource(id = R.drawable.ic_stub_chart),
                     contentDescription = null,
                 )
-                SetupTrendingBalance(trending = trending)
+                SetupMarketBalance(market = market)
             }
         }
     }
 }
 
 @Composable
-private fun SetupTrendingBalance(trending: UiTrending) {
+private fun SetupMarketBalance(market: UiMarket) {
     Row(
         modifier = Modifier.fillMaxWidth().padding(top = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
             modifier = Modifier.width(124.dp),
-            text = "$${trending.balance}",
+            text = "$${market.balance}",
             color = Color.White,
             style = typography.body2
         )
-        val painterRes = when (trending.isGrowthUp) {
+        val painterRes = when (market.isGrowthUp) {
             false -> R.drawable.ic_arrow_down
             true -> R.drawable.ic_arrow_up
         }
@@ -212,11 +212,11 @@ private fun SetupTrendingBalance(trending: UiTrending) {
             modifier = Modifier,
             painter = painterResource(id = painterRes),
             contentDescription = null,
-            tint = if (trending.isGrowthUp) BasicGreen else BasicRed
+            tint = if (market.isGrowthUp) BasicGreen else BasicRed
         )
         Text(
-            text = "${abs(trending.growth)}%",
-            color = if (trending.isGrowthUp) BasicGreen else BasicRed,
+            text = "${abs(market.growth)}%",
+            color = if (market.isGrowthUp) BasicGreen else BasicRed,
             style = typography.subtitle1
         )
     }
