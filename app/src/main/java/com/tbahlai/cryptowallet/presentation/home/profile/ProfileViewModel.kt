@@ -4,11 +4,11 @@ import androidx.lifecycle.viewModelScope
 import com.tbahlai.cryptowallet.common.BaseViewModel
 import com.tbahlai.cryptowallet.common.OnError
 import com.tbahlai.cryptowallet.common.utils.start
+import com.tbahlai.cryptowallet.domain.market.GetTrendingMarketsListUseCase
 import com.tbahlai.cryptowallet.domain.news.GetNewsListUseCase
 import com.tbahlai.cryptowallet.domain.profile.GetCurrentUserDataUseCase
-import com.tbahlai.cryptowallet.domain.profile.GetTrendingListUseCase
+import com.tbahlai.cryptowallet.presentation.home.mappers.MarketToUiMarketMapper
 import com.tbahlai.cryptowallet.presentation.home.mappers.NewToUiNewMapper
-import com.tbahlai.cryptowallet.presentation.home.mappers.TrendingToUiTrendingMapper
 import com.tbahlai.cryptowallet.presentation.home.mappers.UserToUiUserMapper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -18,15 +18,15 @@ import javax.inject.Inject
 class ProfileViewModel @Inject constructor(
     private val userToUiUserMapper: UserToUiUserMapper,
     private val getCurrentUserDataUseCase: GetCurrentUserDataUseCase,
-    private val trendingToUiTrendingMapper: TrendingToUiTrendingMapper,
-    private val getTrendingListUseCase: GetTrendingListUseCase,
+    private val marketToUiMarketMapper: MarketToUiMarketMapper,
+    private val getTrendingMarketsListUseCase: GetTrendingMarketsListUseCase,
     private val getNewsListUseCase: GetNewsListUseCase,
     private val newToUiNewMapper: NewToUiNewMapper
 ) : BaseViewModel<ProfileState, ProfileAction, ProfileEvent>() {
 
     init {
         getCurrentUserData()
-        getTrendingList()
+        getMarketsList()
         getNewsList()
     }
 
@@ -37,10 +37,10 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
-    private fun getTrendingList() {
+    private fun getMarketsList() {
         viewModelScope.launch {
-            val trendingList = getTrendingListUseCase().map(trendingToUiTrendingMapper::map)
-            setData { copy(trendingList = trendingList) }
+            val marketsList = getTrendingMarketsListUseCase().map(marketToUiMarketMapper::map)
+            setData { copy(marketsList = marketsList) }
         }
     }
 

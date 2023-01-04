@@ -1,6 +1,6 @@
 package com.tbahlai.cryptowallet.presentation.home.models
 
-data class UiTrending(
+data class UiMarket(
     val id: Long,
     val name: String,
     val logo: Int,
