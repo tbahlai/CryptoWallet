@@ -26,6 +26,10 @@ android {
                 applicationIdSuffix = ".dev"
                 isDebuggable = true
                 matchingFallbacks.add("release")
+
+                buildConfigField("String", Constants.BASE_API_URL, Constants.DEV.BASE_API_URL)
+                buildConfigField("String", Constants.API_KEY, Constants.DEV.API_KEY)
+                buildConfigField("String", Constants.API_HOST, Constants.DEV.API_HOST)
             }
 
             getByName("release") {
@@ -33,6 +37,9 @@ android {
                     getDefaultProguardFile("proguard-android-optimize.txt"),
                     "proguard-rules.pro"
                 )
+                buildConfigField("String", Constants.BASE_API_URL, Constants.RELEASE.BASE_API_URL)
+                buildConfigField("String", Constants.API_KEY, Constants.RELEASE.API_KEY)
+                buildConfigField("String", Constants.API_HOST, Constants.RELEASE.API_HOST)
             }
         }
 
@@ -100,6 +107,7 @@ dependencies {
     implementation(Google.hiltAndroid)
     kapt(Google.hiltCompiler)
 
+    implementation(Third.glideCompose)
     implementation(Third.viewBindingPropertyDelegate)
     implementation(Google.accompanistSwipeRefresh)
 }
