@@ -19,12 +19,14 @@ class NewsRepository @Inject constructor(
         get() = _news
     private val _news: MutableStateFlow<List<New>> = MutableStateFlow(emptyList())
 
-    suspend fun getNewsList(needToRefresh: Boolean = false) : RequestResult<List<New>, ApiError> {
-        if (_news.value.isNotEmpty() && !needToRefresh) return RequestResult.Success(_news.value)
-
+    suspend fun getNewsList() : RequestResult<List<New>, ApiError> {
         return apiService.getNewsList()
             .mapFailure(ApiErrorDTO::toApiError)
             .map { it.map { it.toNew() } }
-            .onSuccess { _news.value = it }
+            .onSuccess {
+                val list = _news.value.toMutableList()
+                list.addAll(0, it)
+                _news.value = list
+            }
     }
 }

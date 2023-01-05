@@ -3,6 +3,7 @@ package com.tbahlai.cryptowallet.presentation.home.profile
 import androidx.lifecycle.viewModelScope
 import com.tbahlai.cryptowallet.common.BaseViewModel
 import com.tbahlai.cryptowallet.common.OnError
+import com.tbahlai.cryptowallet.common.utils.launchPeriodic
 import com.tbahlai.cryptowallet.common.utils.start
 import com.tbahlai.cryptowallet.domain.market.GetTrendingMarketsListUseCase
 import com.tbahlai.cryptowallet.domain.news.GetNewsListUseCase
@@ -21,7 +22,7 @@ class ProfileViewModel @Inject constructor(
     private val marketToUiMarketMapper: MarketToUiMarketMapper,
     private val getTrendingMarketsListUseCase: GetTrendingMarketsListUseCase,
     private val getNewsListUseCase: GetNewsListUseCase,
-    private val newToUiNewMapper: NewToUiNewMapper
+    private val newToUiNewMapper: NewToUiNewMapper,
 ) : BaseViewModel<ProfileState, ProfileAction, ProfileEvent>() {
 
     init {
@@ -46,9 +47,9 @@ class ProfileViewModel @Inject constructor(
 
     private fun getNewsList() {
         updateState { copy(loading = loading.start()) }
-        viewModelScope.launch {
+        viewModelScope.launchPeriodic(FIFTEENTH_SECONDS_IN_MILLIS) {
             getNewsListUseCase()
-                .onSuccess { setData { copy(newsList = it.map(newToUiNewMapper::map)) } }
+                .onSuccess { setData { copy(newsList = it.take(10).map(newToUiNewMapper::map)) } }
                 .onFailure {
                     val error = OnError(predicate = true, retryAction = { getNewsList() })
                     setError { copy(error = error) }
@@ -59,5 +60,9 @@ class ProfileViewModel @Inject constructor(
     override fun initialState(): ProfileState = ProfileState()
 
     public override fun handleAction(action: ProfileAction) {
+    }
+
+    private companion object {
+        private const val FIFTEENTH_SECONDS_IN_MILLIS = 15000L
     }
 }
