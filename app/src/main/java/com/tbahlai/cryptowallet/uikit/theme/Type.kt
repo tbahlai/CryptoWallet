@@ -19,7 +19,7 @@ val Typography = Typography(
     h1 = TextStyle(
         fontFamily = sfProFamily,
         fontWeight = FontWeight.Medium,
-        fontSize = 10.sp
+        fontSize = 32.sp
     ),
     h3 = TextStyle(
         fontFamily = sfProFamily,
@@ -30,6 +30,11 @@ val Typography = Typography(
         fontFamily = sfProFamily,
         fontWeight = FontWeight.Medium,
         fontSize = 20.sp
+    ),
+    h6 = TextStyle(
+        fontFamily = sfProFamily,
+        fontWeight = FontWeight.Medium,
+        fontSize = 10.sp
     ),
     body1 = TextStyle(
         fontFamily = sfProFamily,

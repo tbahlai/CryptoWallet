@@ -7,18 +7,21 @@ import android.view.ViewGroup
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.tbahlai.cryptowallet.common.utils.hasError
 import com.tbahlai.cryptowallet.common.utils.isLoading
 import com.tbahlai.cryptowallet.common.utils.isRefreshing
 import com.tbahlai.cryptowallet.uikit.components.UiKitEmptyState
 import com.tbahlai.cryptowallet.uikit.components.UiKitErrorState
 import com.tbahlai.cryptowallet.uikit.components.UiKitProgressIndicator
+import com.tbahlai.cryptowallet.uikit.theme.BasicBlack
 import com.tbahlai.cryptowallet.uikit.theme.CryptoWalletTheme
 
 abstract class BaseComposeFragment : Fragment() {
@@ -39,6 +42,7 @@ abstract class BaseComposeFragment : Fragment() {
                 screenState = baseState
 
                 CryptoWalletTheme {
+                    SetStatusBarColor()
                     ScaffoldData {
                         if (screenState is RefreshState) RefreshState() else ScreenContent()
                         LoadingState()
@@ -88,6 +92,12 @@ abstract class BaseComposeFragment : Fragment() {
             imageResId = emptyState.imageResId,
             message = getString(emptyState.message)
         )
+    }
+
+    @Composable
+    fun SetStatusBarColor(color: Color = BasicBlack) {
+        val systemUiController = rememberSystemUiController()
+        systemUiController.setSystemBarsColor(color = color)
     }
 
     fun navigateTo(destination: NavDirections) {

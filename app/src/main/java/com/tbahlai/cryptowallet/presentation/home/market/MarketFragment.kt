@@ -3,6 +3,8 @@ package com.tbahlai.cryptowallet.presentation.home.market
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -43,7 +45,11 @@ class MarketFragment : BaseComposeFragment() {
     override fun ScreenContent() {
         val state by viewModel.state.collectAsState()
 
-        Column(modifier = Modifier.fillMaxSize().padding(vertical = 24.dp)) {
+        Column(modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .padding(vertical = 24.dp)
+        ) {
             state.marketsList.forEach { market ->
                 ConstraintLayout(
                     modifier = Modifier

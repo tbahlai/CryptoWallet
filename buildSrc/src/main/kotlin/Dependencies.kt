@@ -54,6 +54,7 @@ object Google {
     const val composeConstraintLayout = "androidx.constraintlayout:constraintlayout-compose:${Versions.composeConstraintLayoutVersion}"
 
     const val accompanistSwipeRefresh = "com.google.accompanist:accompanist-swiperefresh:${Versions.accompanistSwipeRefreshVersion}"
+    const val accompanistSystemUiController = "com.google.accompanist:accompanist-systemuicontroller:${Versions.accompanistSystemUiControllerVersion}"
 }
 
 object AndroidX {
@@ -121,6 +122,7 @@ object Versions {
     const val composeActivityVersion = "1.4.0"
 
     const val accompanistSwipeRefreshVersion = "0.23.0"
+    const val accompanistSystemUiControllerVersion = "0.28.0"
 
     const val ktlintVersion = "10.3.0"
 }
