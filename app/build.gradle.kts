@@ -110,4 +110,5 @@ dependencies {
     implementation(Third.glideCompose)
     implementation(Third.viewBindingPropertyDelegate)
     implementation(Google.accompanistSwipeRefresh)
+    implementation(Google.accompanistSystemUiController)
 }
