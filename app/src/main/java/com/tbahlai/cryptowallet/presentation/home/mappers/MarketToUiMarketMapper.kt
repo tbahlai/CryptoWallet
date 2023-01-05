@@ -15,7 +15,10 @@ class MarketToUiMarketMapper @Inject constructor(
             logo = market.logo,
             description = market.description,
             balance = market.balance,
-            growth = market.growth
+            growth = market.growth,
+            lowBalance = market.lowBalance,
+            highBalance = market.highBalance,
+            volume = market.volume
         )
     }
 }

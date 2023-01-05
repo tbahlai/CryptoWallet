@@ -16,4 +16,15 @@
     <string name="trending">Trending</string>
     <string name="news_text">News</string>
     <string name="show_all">Show all</string>
+    <string name="btc_text">BTC</string>
+    <string name="usd_text">USD</string>
+    <string name="available_text">Available: 0</string>
+    <string name="low_text">24h Low</string>
+    <string name="high_text">24h High</string>
+    <string name="volume_btc">Volume (BTC)</string>
+    <string name="buy_btc">Buy BTC</string>
+    <string name="sell_btc">Sell BTC</string>
+    <string name="about_btc">About BTC</string>
+    <string name="show_more_with_plus">Show more +</string>
+    <string name="text_stub_about_btc">Bitcoin is a decentralized digital currency created in January 2009. It follows the ideas set out in a whitepaper by the mysterious and pseudonymous Satoshi Nakamoto.\n\nThe identity of the person or persons who created the technology is still a mystery. Bitcoin offers the </string>
 </resources>
